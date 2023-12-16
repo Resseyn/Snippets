@@ -13,7 +13,7 @@ var UserQueryChannels = make(map[int64]chan tgbotapi.Update) //key = chatID
 var ChatCurrStack = make(map[int64]int)                      //key = chatID
 
 func BotStart() {
-	bot, err := tgbotapi.NewBotAPI("6467098865:AAHByMBybrT_pFOjySUOg960m6YiW7D7B4Y")
+	bot, err := tgbotapi.NewBotAPI("key")
 	if err != nil {
 		log.Panic(err)
 	}
