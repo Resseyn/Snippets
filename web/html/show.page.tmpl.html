@@ -1,0 +1,20 @@
+{{template "base" .}}
+
+{{define "title"}}Заметка #{{.Snippet.ID}}{{end}}
+
+{{define "main"}}
+    {{with .Snippet}}
+        <div class='snippet'>
+            <div class='metadata'>
+                <strong>{{.Title}}</strong>
+                <span>#{{.ID}}</span>
+                <span>#{{.CreatedBy}}</span>
+            </div>
+            <pre><code>{{.Content}}</code></pre>
+            <div class='metadata'>
+                <time>Создан: {{.Created.Format "2006-01-02 15:04:05"}}</time>
+                <time>Срок: {{.Expires.Format "2006-01-02 15:04:05"}}</time>
+            </div>
+        </div>
+        {{end}}
+{{end}}

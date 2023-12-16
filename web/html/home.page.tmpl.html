@@ -1,0 +1,35 @@
+{{template "base" .}}
+
+{{define "title"}}Домашняя страница{{end}}
+
+{{define "main"}}
+    {{with .User}}
+        <div class='snippet'>
+            <div class='metadata'>
+                <strong>{{.UserID}}</strong>
+                <span>#{{.ChatID}}</span>
+            </div>
+        </div>
+    {{end}}
+    {{if .Snippets}}
+        <table>
+            <tr>
+                <th>Заголовок</th>
+                <th>Создан</th>
+                <th>Удалить</th>
+                <th>ID</th>
+            </tr>
+            {{range .Snippets}}
+            <tr>
+                <td><a href='/snippet?id={{.ID}}'>{{.Title}}</a></td>
+                <td>{{.Created.Format "2006-01-02 15:04:05"}}</td>
+{{/*                <td><a href='/snippet/update?id={{.ID}}'>Изменить</a></td>*/}}
+                <td><a href='/snippet/delete?id={{.ID}}'>Удалить</a></td>
+                <td>#{{.ID}}</td>
+        </tr>
+        {{end}}
+        </table>
+    {{else}}
+        <p>Здесь ничего нет... пока что!</p>
+    {{end}}
+{{end}}

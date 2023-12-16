@@ -1,0 +1,21 @@
+{{template "base" .}}
+
+{{define "title"}}Изменение заметки{{end}}
+
+{{define "main"}}
+    <div class='snippet'>
+        <div class='metadata'>
+            <strong>SUS</strong>
+            <span>AMOGUS</span>
+        </div>
+        <pre>
+                <form action="http://localhost:8080/snippet/creation/create"
+                      method="post" enctype="application/x-www-form-urlencoded">
+                <input type="text" name="title" value="" placeholder="Введите заголовок"/>
+                <input type="text" name="content" value="" placeholder="Введите содержание заметки"/>
+                <input type="text" name="expires" value="" placeholder="Введите время хранения заметки (в часах)"/>
+                <input type="submit"/>
+                </form>
+            </pre>
+    </div>
+{{end}}
